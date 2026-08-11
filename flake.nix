@@ -20,6 +20,7 @@
     in
       pkgs.mkShell {
         packages = with pkgs; [
+          postgresql
           pythonpkgs
           duckdb
           devenv
