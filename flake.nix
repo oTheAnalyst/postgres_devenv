@@ -16,12 +16,14 @@
         with ps; [
           numpy
           requests
+          keyring
         ])).override {ignoreCollisions = true;};
     in
       pkgs.mkShell {
         packages = with pkgs; [
           postgresql
           pythonpkgs
+          sqlfluff
           duckdb
           devenv
         ];
