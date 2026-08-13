@@ -22,7 +22,7 @@
            md5_checksum VARCHAR);
 
        CREATE TABLE mart.account(
-               account_id NOT NULL serial PRIMARY KEY,
+               account_id serial PRIMARY KEY,
                account_type VARCHAR(45),
                account_description VARCHAR(200)
                );

@@ -1,10 +1,15 @@
-CREATE TABLE inter.category AS 
+DROP SEQUENCE "serial";
+CREATE SEQUENCE "serial";
+CREATE TABLE inter.full_table AS 
 WITH cte AS (
-        SELECT "Category", "Original Description" FROM staging.checking GROUP BY "Category", "Original Description"
+        SELECT "Category", "Original Description" FROM staging.checking 
+        GROUP BY "Category", "Original Description"
         UNION 
-        SELECT "Category", "Original Description" FROM staging.tax_account GROUP BY "Category", "Original Description" 
+        SELECT "Category", "Original Description" FROM staging.tax_account 
+        GROUP BY "Category", "Original Description" 
         UNION 
-        SELECT "Category", "Original Description" FROM staging.true_saving GROUP BY "Category", "Original Description"
+        SELECT "Category", "Original Description" FROM staging.true_saving 
+        GROUP BY "Category", "Original Description"
 
 )
 SELECT

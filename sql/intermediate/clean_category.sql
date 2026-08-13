@@ -1,7 +1,7 @@
 DROP SEQUENCE category_id;
 CREATE SEQUENCE category_id;
 
-CREATE OR REPlACE TABLE inter.clean_category AS
+CREATE TABLE inter.clean_category AS
 WITH cte AS (
     SELECT trim(lower("Category")) AS category
     FROM

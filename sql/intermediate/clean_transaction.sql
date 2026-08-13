@@ -1,4 +1,8 @@
-CREATE TABLE inter.clean_transaction AS WITH cte AS (
+DROP SEQUENCE transaction_id;
+DROP TABLE inter.clean_transaction;
+CREATE SEQUENCE transaction_id;
+CREATE TABLE inter.clean_transaction AS
+WITH cte AS (
         SELECT
                 TRIM(LOWER("Category")) AS category
         FROM
@@ -17,4 +21,4 @@ FROM
 SELECT
         *
 FROM
-        inter.clean_category;
+        inter.clean_transaction;
