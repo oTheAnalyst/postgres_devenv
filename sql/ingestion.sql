@@ -1,6 +1,6 @@
 INSTALL postgres;
 LOAD postgres;
-ATTACH 'dbname=fmart user=pretender host=/run/user/1000/devenv-e38e48e/postgres/' AS postgres_db(TYPE postgres);
+ATTACH 'dbname=fmart user=pretender host=localhost' AS postgres_db(TYPE postgres);
 CREATE
 OR REPLACE TABLE postgres_db.staging.true_saving AS SELECT
         *

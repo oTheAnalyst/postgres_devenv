@@ -1,5 +1,5 @@
 -- PostgreSQL/Redshift compatible solution
-INSERT INTO mart.calendar (short_date, weekday_name, day_month, month_name, quarter, year, weekday_number, month_number)
+INSERT INTO mart.date (short_date, weekday_name, day_month, month_name, quarter, year, weekday_number, month_number)
 SELECT 
     date_series::DATE AS short_date,
     TO_CHAR(date_series, 'Day') AS weekday_name,

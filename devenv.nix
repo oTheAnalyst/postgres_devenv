@@ -6,6 +6,8 @@
 
     initialDatabases = [{name = "fmart";}];
 
+    listen_addresses = "localhost";
+
     initialScript = ''
          \c fmart
             CREATE SCHEMA staging;

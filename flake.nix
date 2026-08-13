@@ -11,7 +11,10 @@
     pkgs = nixpkgs.legacyPackages.${system};
     fmart =
       pkgs.writeShellScriptBin "fmart"
-      ''alias fmart='psql -h /run/user/1000/devenv-e38e48e/postgres/ -d fmart' '';
+      ''pgcli -h localhost -d fmart'';
+    sendb =
+      pkgs.writeShellScriptBin "sendb"
+      ''psql -h localhost -d fmart'';
     redev =
       pkgs.writeShellScriptBin "redev"
       ''rm -rf .devenv && devenv up'';
@@ -33,10 +36,12 @@
       pkgs.mkShell {
         packages = with pkgs; [
           cowsay
+          sendb
           fmart
           redev
           ingest
           postgresql
+          pgcli
           pythonpkgs
           sqlfluff
           duckdb
