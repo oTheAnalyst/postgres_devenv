@@ -1,24 +1,23 @@
 DROP SEQUENCE transaction_id;
 DROP TABLE inter.clean_transaction;
 CREATE SEQUENCE transaction_id;
-CREATE TABLE inter.clean_transaction AS
+CREATE TABLE inter.clean_transaction AS 
 WITH cte AS (
         SELECT
-                TRIM(LOWER("Category")) AS category
+                transaction_type
         FROM
                 inter.full_table
         GROUP BY
-                "Category"
+                transaction_type
 ) SELECT
-        cte.category as transaction,
+        cte.transaction_type AS category,
         nextval('transaction_id') AS category_id
 FROM
-        cte WHERE category IN(
-                        'transfer', 
-                 'interest income'
-
-                );
-SELECT
-        *
-FROM
-        inter.clean_transaction;
+        cte
+WHERE
+        transaction_type IN(
+                'transfer',
+                'debit',
+                'credit',
+                'interest income'
+        );
